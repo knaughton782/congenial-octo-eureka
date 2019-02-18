@@ -8,8 +8,9 @@
 7) auto add height and width and spaces for iframe
 8) make sure the number is a number
 
-
 */
+
+
 /********************* 
  * Example of working iframe
  * 
@@ -25,12 +26,12 @@ var iframeEnd = ' width = "330" height = "50" > &lt;/iframe>';
 
 function generateIframe() {
 
-    get user input 
-    loop over text
+    // get user input 
+    // loop over text
 }
 
 if ([i] == <) {
-    then change it to '&lt;';
+    // then change it to '&lt;';
 }
 
-user input to lowercase on coursePrefix
+// user input to lowercase on coursePrefix

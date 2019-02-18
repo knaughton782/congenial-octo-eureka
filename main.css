@@ -7,11 +7,17 @@ Headings: font-family: 'EB Garamond', Georgia, serif;
 body {
     font-family: Arial, Helvetica, sans-serif;
     margin: 5%;
+    color: #303030;
 }
 
 h1, h2, h3, h4, h5, h6 {
     font-family: 'EB Garamond', Georgia, serif;
     color: #004990;
+}
+
+.title {
+    border-bottom: 1px solid #004990;
+    width: 70%;
 }
 
 #content-wrapper {
@@ -31,7 +37,7 @@ h1, h2, h3, h4, h5, h6 {
     width: 80%;
     border: 1px solid #ccc;
     border-radius: 5px;
-    padding-bottom: 15%;
+    padding-bottom: 5%;
 }
 
 form {
@@ -81,4 +87,10 @@ input[type=submit]:hover {
 
 code {
     font-family: monospace;
+    width: 85%;
+    overflow-wrap: break-word;
+    word-wrap: break-word;
+    -ms-word-break: break-all;
+    word-break: break-all;
+    word-break: break-word;
 }

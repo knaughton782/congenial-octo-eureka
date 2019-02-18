@@ -5,13 +5,43 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link href="https://fonts.googleapis.com/css?family=EB+Garamond" rel="stylesheet">
     <link rel="stylesheet" href="main.css">
     <title>Audio iFrame Generator</title>
 </head>
 
 <body>
-<h1>Audio Link iFrame Generator</h1>
+    <main id="content-wrapper">
+        <h1>Audio Link iFrame Generator</h1>
+        <p class="warning">* All fields are required</p>
+        <form action="">
+            <fieldset>
+                <label>What is the name of the audio track? <span class="instructions">(Please input the title exactly
+                        as it is written including capital letters.</span> </label><br>
+                <input type="text" placeholder="ex: Track01" required id="audioTitle"><br>
 
+                <label>What is the course prefix?</label><br>
+                <input type="text" placeholder="ex: biol" required id="coursePrefix"><br>
+
+                <label>What is the course number?</label><br>
+                <input type="text" placeholder="ex: 3600" required id="courseNum"><br>
+
+                <input type="submit" value="Generate iFrame">
+            </fieldset>
+            <fieldset>
+                <h3>Instructions:</h3>
+                <p>Copy and paste the resulting code into the HTML editor in WorldClassRoom.</p>
+                <div class="result">
+                    <pre>
+                        <code id="iframe-result">
+                            &lt;iframe src="https://streamingmedia.webster.edu/a_player_v1/audio.html?pre=anth&num=2510&track=1_2Track10" width="305"
+                                height="45">&lt;/iframe>
+                        </code>
+                    </pre>
+                </div>
+            </fieldset>
+        </form>
+    </main>
     <script scr="script.js"></script>
 </body>
 

@@ -1,0 +1,58 @@
+<html>
+<head>
+<script src="https://code.jquery.com/jquery-3.3.1.js"></script> 
+
+<script>
+$(document).ready(function() {
+	$('#submit').click(function() {
+		var whichvideo = $('#videofile').val();
+		whichvideo = whichvideo.replace('.mp4','');
+		var whichsubfolder = $('#subfolder').val();
+		var theembedcode;
+		//alert("subfolder: " + whichsubfolder);
+		//alert(whichsubfolder + "/" + whichvideo);
+		
+		$('#generator').submit(function(e) {
+			e.preventDefault();
+		});
+		
+		theembedcode = 'Copy and paste the following iframe tag into where you\'d like it to show in your content.<p>';
+		theembedcode = theembedcode + '&lt;iframe class="amsplayer" src="https://streamingmedia.webster.edu/player_v8/hls.html?pl=false&amp;ptype=ns&amp;pre=library&amp;num=';
+		theembedcode = theembedcode + whichsubfolder;
+		theembedcode = theembedcode + '&amp;video=';
+		theembedcode = theembedcode + whichvideo;
+		theembedcode = theembedcode + '&amp;format=mp4&amp;caption=';
+		theembedcode = theembedcode + whichvideo;
+		theembedcode = theembedcode + '" allowfullscreen="allowfullscreen" webkitallowfullscreen="webkitallowfullscreen" mozallowfullscreen="mozallowfullscreen" frameborder="0" width="640" height="370"&gt;&lt;/iframe&gt;';
+		theembedcode = theembedcode + '</p>';
+		
+		theshowme = '<iframe class="amsplayer" src="https://streamingmedia.webster.edu/player_v8/hls.html?pl=false&ptype=ns&pre=library&num=';
+		theshowme = theshowme + whichsubfolder;
+		theshowme = theshowme + '&video=';
+		theshowme = theshowme + whichvideo;
+		theshowme = theshowme + '&format=mp4&caption=';
+		theshowme = theshowme + whichvideo;
+		theshowme = theshowme + '" allowfullscreen="allowfullscreen" webkitallowfullscreen="webkitallowfullscreen" mozallowfullscreen="mozallowfullscreen" frameborder="0" width="640" height="370"></iframe>';
+		
+		$('#theembed').html(theembedcode);
+		$('#dotheshowme').html(theshowme);
+	});
+});
+</script>
+</head>
+
+<body>
+<p>Enter your video's information below. When you click "Submit", you will be given an iframe embed code that you can use to place your video.</p>
+
+<form name="generator-form" id="generator">
+<strong>Subfolder Name:</strong> <input type="text" name="subfolder" id="subfolder" size="50">
+<p><strong>Video Filename (without extension):</strong> <input type="text" name="videofile" id="videofile" size="50"></p>
+<p><button id="submit">Submit</button></p>
+</form>
+
+<p id="theembed"></p>
+
+<p id="dotheshowme"></p>
+
+</body>
+</html>

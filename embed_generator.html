@@ -1,0 +1,67 @@
+<html>
+
+<head>
+	<link rel="stylesheet" href="main.css">
+	<script src="https://code.jquery.com/jquery-3.3.1.js"></script>
+
+	<script>
+		$(document).ready(function () {
+			$('#submit').click(function () {
+				var whichvideo = $('#videofile').val();
+				var whichprefix = $('#thePrefix').val();
+				var whichnumber = $('#theNumber').val();
+				var theembedcode;
+				//alert(whichvideo);
+
+				$('#generator').submit(function (e) {
+					e.preventDefault();
+				});
+
+				theembedcode = '';
+				theembedcode = theembedcode + '&lt;iframe src="https://streamingmedia.webster.edu/player_v8/hls.html?pl=false&amp;ptype=ns&amp;pre=';
+				theembedcode = theembedcode + whichprefix;
+				theembedcode = theembedcode + '&amp;num=';
+				theembedcode = theembedcode + whichnumber;
+				theembedcode = theembedcode + '&amp;video=';
+				theembedcode = theembedcode + whichvideo;
+				theembedcode = theembedcode + '&amp;format=mp4&amp;caption=';
+				theembedcode = theembedcode + whichvideo;
+				theembedcode = theembedcode + '" allowfullscreen="allowfullscreen" webkitallowfullscreen="webkitallowfullscreen" mozallowfullscreen="mozallowfullscreen" width="640" height="370"&gt;&lt;/iframe&gt;';
+				theembedcode = theembedcode + '</p>';
+
+				$('#theembed').html(theembedcode);
+			});
+		});
+	</script>
+</head>
+
+<body>
+	<main id="content-wrapper">
+		<h1 class="title">Video iFrame Generator</h1>
+		<p class="warning">* All fields are required</p>
+
+		<form name="generator-form" id="generator">
+			<fieldset>
+				<label>Course Prefix:</label><br>
+				<input type="text" name="thePrefix" id="thePrefix" size="5" placeholder="ex: acct"><br>
+				<label>Course Number:</label> <br>
+				<input type="text" name="theNumber" id="theNumber" size="5" placeholder="ex: 2010"><br>
+				<label>Video Title:</label> <br>
+				<input type="text" name="videofile" id="videofile" size="50" placeholder="Chpt_1"><br>
+				<button id="submit">Submit</button>
+			</fieldset>
+			<fieldset>
+				<h3>Instructions:</h3>
+				<p>Copy and paste the resulting iFrame code into the HTML editor in WorldClassRoom.</p>
+				<div class="result">
+					<code id="theembed">
+			                </code>
+				</div>
+			</fieldset>
+		</form>
+
+		<p id="theembed"></p>
+	</main>
+</body>
+
+</html>

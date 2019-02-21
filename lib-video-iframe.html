@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link rel="stylesheet" href="main.css" />
+    <title>Lib Video iFrame Generator</title>
+    <script src="https://code.jquery.com/jquery-3.3.1.js"></script>
+
+    <script>
+      $(document).ready(function() {
+        $('#submit').click(function() {
+          var whichvideo = $('#videofile').val();
+          whichvideo = whichvideo.replace('.mp4', '');
+          var whichsubfolder = $('#subfolder').val();
+          var theembedcode;
+          //alert("subfolder: " + whichsubfolder);
+          //alert(whichsubfolder + "/" + whichvideo);
+
+          $('#generator').submit(function(e) {
+            e.preventDefault();
+          });
+
+          theembedcode = '';
+          theembedcode =
+            theembedcode +
+            '&lt;iframe class="amsplayer" src="https://streamingmedia.webster.edu/player_v8/hls.html?pl=false&amp;ptype=ns&amp;pre=library&amp;num=';
+          theembedcode = theembedcode + whichsubfolder;
+          theembedcode = theembedcode + '&amp;video=';
+          theembedcode = theembedcode + whichvideo;
+          theembedcode = theembedcode + '&amp;format=mp4&amp;caption=';
+          theembedcode = theembedcode + whichvideo;
+          theembedcode =
+            theembedcode +
+            '" allowfullscreen="allowfullscreen" webkitallowfullscreen="webkitallowfullscreen" mozallowfullscreen="mozallowfullscreen" frameborder="0" width="640" height="370"&gt;&lt;/iframe&gt;';
+          theembedcode = theembedcode + '</p>';
+
+          theshowme =
+            '<iframe class="amsplayer" src="https://streamingmedia.webster.edu/player_v8/hls.html?pl=false&ptype=ns&pre=library&num=';
+          theshowme = theshowme + whichsubfolder;
+          theshowme = theshowme + '&video=';
+          theshowme = theshowme + whichvideo;
+          theshowme = theshowme + '&format=mp4&caption=';
+          theshowme = theshowme + whichvideo;
+          theshowme =
+            theshowme +
+            '" allowfullscreen="allowfullscreen" webkitallowfullscreen="webkitallowfullscreen" mozallowfullscreen="mozallowfullscreen" frameborder="0" width="640" height="370"></iframe>';
+
+          $('#theembed').html(theembedcode);
+          $('#dotheshowme').html(theshowme);
+        });
+      });
+    </script>
+  </head>
+
+  <body>
+    <main id="content-wrapper">
+      <h1 class="title">Library Video iFrame Generator</h1>
+      <p class="warning">* All fields are required</p>
+
+      <form name="generator-form" id="generator">
+        <fieldset>
+          <label><strong>Subfolder Name:</strong></label
+          ><br />
+          <input type="text" name="subfolder" id="subfolder" size="50" />
+
+          <label><strong>Video Filename (without extension):</strong></label
+          ><br />
+          <input type="text" name="videofile" id="videofile" size="50" /><br />
+
+          <button id="submit">Submit</button>
+        </fieldset>
+        <fieldset>
+          <h3>Instructions:</h3>
+          <p>
+            Copy and paste the resulting iFrame code where you'd like it to show
+            in your content.
+          </p>
+          <div class="result">
+            <code id="theembed"> </code>
+          </div>
+        </fieldset>
+      </form>
+
+      <!-- <p id="theembed"></p> -->
+
+      <p id="dotheshowme"></p>
+    </main>
+  </body>
+</html>
